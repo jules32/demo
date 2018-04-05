@@ -1,8 +1,7 @@
 ---
 title: "Moss Landing Marine Lab Demo!"
 author: "Julie"
-date: "4/4/2018"
-output: html_document
+date: "4/5/2018"
 ---
 
 ## Plan for our little analysis
