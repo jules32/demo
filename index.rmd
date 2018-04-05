@@ -3,3 +3,17 @@ title: "Moss Landing Marine Lab Demo!"
 author: "Julie"
 date: "4/5/2018"
 ---
+
+## Plan for our little analysis
+
+We will demo: 
+
+- data visualization with `ggplot2`
+- reproducible reports with RMarkdown
+- version control with Git and GitHub
+- publishing our report as a website!!!
+
+Data:
+
+We'll be using data from the National Park Service: Annual Visitation by Park from 1979-2017. <https://irma.nps.gov/Stats/Reports/National>.
+
