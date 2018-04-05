@@ -43,6 +43,9 @@ np_ca <- np_visit %>% # introduce pipe operator?
 ggplot(data = np_ca, aes(x = year, y = visitors)) + 
   geom_point(aes(color = park_name))
 
+## and now box plot
+ggplot(data = np_ca, aes(x = park_name, y = visitors)) +
+  geom_boxplot(aes(fill = park_name))
 ```
 
 ## Let's add a photo
