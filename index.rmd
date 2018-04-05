@@ -19,7 +19,7 @@ Data:
 We'll be using data from the National Park Service: Annual Visitation by Park from 1979-2017. <https://irma.nps.gov/Stats/Reports/National>.
 
 
-### Setup information and code
+## Setup information and code
 
 We'll clearly identify the requirements to do this analysis: R packages and data sources.
 
