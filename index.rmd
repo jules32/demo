@@ -1,31 +1,55 @@
 ---
-title: "Moss Landing Marine Labs"
+title: "Moss Landing Marine Lab Demo!"
 author: "Julie"
 date: "4/4/2018"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+## Plan for our little analysis
+
+We will demo: 
+
+- data visualization with `ggplot2`
+- reproducible reports with RMarkdown
+- version control with Git and GitHub
+- publishing our report as a website!!!
+
+Data:
+
+We'll be using data from the National Park Service: Annual Visitation by Park from 1979-2017. <https://irma.nps.gov/Stats/Reports/National>.
+
+
+### Setup information and code
+
+We'll clearly identify the requirements to do this analysis: R packages and data sources.
+
+```{r setup, warning=FALSE, message=FALSE}
+## load libraries
+library(tidyverse)
+
+## import data
+np_visit <- read_csv("https://raw.githubusercontent.com/allisonhorst/data-vis/master/np_visit.csv")
 ```
 
-## Demoing something
+## Explore National Parks in California
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+I know these data are already tidy, so we can subset the data we want to explore and visualize it
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r ca national parks}
+## first filter National Parks in California
+np_ca <- np_visit %>% # introduce pipe operator?
+  filter(type == "National Park" & state == "CA")
 
-```{r cars}
-summary(cars$speed)
+## and now scatter plot
+ggplot(data = np_ca, aes(x = year, y = visitors)) + 
+  geom_point(aes(color = park_name))
+
+## and now box plot
+ggplot(data = np_ca, aes(x = park_name, y = visitors)) +
+  geom_boxplot(aes(fill = park_name))
 ```
 
-## Including Plots
+## Let's add a photo
 
-You can also embed plots, for example:
+![](Yosemite.jpg)
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-summary(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
