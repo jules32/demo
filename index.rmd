@@ -17,3 +17,35 @@ Data:
 
 We'll be using data from the National Park Service: Annual Visitation by Park from 1979-2017. <https://irma.nps.gov/Stats/Reports/National>.
 
+
+## Setup information and code
+
+We'll clearly identify the requirements to do this analysis: R packages and data sources.
+
+```{r setup, warning=FALSE, message=FALSE}
+## load libraries
+library(tidyverse)
+
+## import data
+np_visit <- read_csv("https://raw.githubusercontent.com/allisonhorst/data-vis/master/np_visit.csv")
+```
+
+## Explore National Parks in California
+
+I know these data are already tidy, so we can subset the data we want to explore and visualize it
+
+```{r ca national parks}
+## first filter National Parks in California
+np_ca <- np_visit %>% # introduce pipe operator?
+  filter(type == "National Park" & state == "CA")
+
+## and now scatter plot
+ggplot(data = np_ca, aes(x = year, y = visitors)) + 
+  geom_point(aes(color = park_name))
+
+```
+
+## Let's add a photo
+
+![](Yosemite.jpg)
+
