@@ -1,5 +1,5 @@
 ---
-title: "WHOI Demo!"
+title: "WHOI Live Demo!"
 author: "Julie Lowndes"
 date: "10/24/2018"
 ---
