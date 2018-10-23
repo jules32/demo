@@ -13,10 +13,14 @@ We will demo:
 - version control with Git and GitHub
 - publishing our report as a website!!!
 
+
 Data:
 
 We'll be using data from the National Park Service: Annual Visitation by Park from 1979-2017. <https://irma.nps.gov/Stats/Reports/National>.
 
+Our website url:
+
+We will publish this to <http://jules32.github.io/demo/whoi>.
 
 ## Setup information and code
 
@@ -42,14 +46,11 @@ np_filter <- np_visit %>% # introduce pipe operator?
 ## and now scatter plot
 ggplot(data = np_filter, aes(x = year, y = visitors)) + 
   geom_point(aes(color = park_name)) +
-  labs(title = "California National Park Visitation") +
-  theme_bw() +
-  theme(legend.title=element_blank())
+  labs(title = "California National Park Visitation")
 
 ## and now box plot
 ggplot(data = np_filter, aes(x = park_name, y = visitors)) +
   geom_boxplot(aes(fill = park_name)) +
-  scale_colour_viridis_d() +
   coord_flip() +
   theme(legend.position = "none")
 ```
