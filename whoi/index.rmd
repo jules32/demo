@@ -22,6 +22,8 @@ Our website url:
 
 We will publish this to <http://jules32.github.io/demo/whoi>.
 
+----
+
 ## Setup information and code
 
 We'll clearly identify the requirements to do this analysis: R packages and data sources.
@@ -40,16 +42,16 @@ These data are already tidy, so we can subset the data we want to explore and vi
 
 ```{r ca national parks}
 ## first filter National Parks in California
-np_filter <- np_visit %>% # introduce pipe operator?
+np_california <- np_visit %>% # introduce pipe operator?
   filter(type == "National Park" & state == "CA")
 
 ## and now scatter plot
-ggplot(data = np_filter, aes(x = year, y = visitors)) + 
+ggplot(data = np_california, aes(x = year, y = visitors)) + 
   geom_point(aes(color = park_name)) +
   labs(title = "California National Park Visitation")
 
 ## and now box plot
-ggplot(data = np_filter, aes(x = park_name, y = visitors)) +
+ggplot(data = np_california, aes(x = park_name, y = visitors)) +
   geom_boxplot(aes(fill = park_name)) +
   coord_flip() +
   theme(legend.position = "none")
